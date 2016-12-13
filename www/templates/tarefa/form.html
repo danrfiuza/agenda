@@ -1,0 +1,56 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-calm">
+    <div class="buttons buttons-left header-item">
+
+      <span class="right-buttons">
+        <button class="button button-icon button-clear ion-android-arrow-back" id="menu-popover" ng-click="closeModal()">
+        </button>
+      </span>
+    </div>
+    <h1 class="title">{{titulo}} ID:{{tarefa.id}}</h1>
+    <div class="buttons buttons-right header-item">
+      <span class="left-buttons">
+        <button ng-hide="!tarefa.id" class="button button-icon button-clear ion-ios-trash-outline" id="menu-popover" ng-click="deletar(tarefa)">
+        </button>
+      </span>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="padding">
+     <label class="item item-input item-floating-label">
+      <span class="input-label">Nome da tarefa:</span>
+      <input type="text" ng-model="tarefa.nome" placeholder="Nome da tarefa">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Descrição da Tarefa:</span>
+      <textarea ng-model="tarefa.descricao"></textarea> 
+    </label>
+    <div class="item item-divider">Data e Hora</div>
+    <div class="item item-icon-left item-floating-label" ion-datetime-picker date ng-model="tarefa.data" title="'Selecione Data'">
+      <i class="icon ion-calendar positive"></i>
+      Data:
+      <strong>{{tarefa.data| date: "dd/MM/yyyy"}}</strong>
+    </div>
+    <div class="item item-icon-left item-floating-label" ion-datetime-picker time ng-model="tarefa.hora" title="'Selecione Hora'">
+      <i class="icon ion-clock positive"></i>
+      Horas:
+      <strong>{{tarefa.hora| date: "HH:mm"}}</strong>
+    </div>
+    <li class="item item-toggle">
+      Concluído
+      <label class="toggle toggle-calm">
+        <input ng-model="tarefa.concluido" type="checkbox">
+        <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+   </li>
+ </div>
+ <div class="padding">
+  <button  ng-click="cadastrar(tarefa)" class="button button-block button-balanced">
+    Confirmar
+    <i class="icon ion-checkmark"></i>
+  </button>
+</div>
+</ion-content>
+</ion-modal-view>

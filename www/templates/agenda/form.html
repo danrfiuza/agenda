@@ -1,0 +1,50 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-calm">
+    <div class="buttons buttons-left header-item">
+
+      <span class="right-buttons">
+        <button class="button button-icon button-clear ion-android-arrow-back" id="menu-popover" ng-click="closeModal()">
+        </button>
+      </span>
+    </div>
+    <h1 class="title">{{titulo}}</h1>
+    <div class="buttons buttons-right header-item">
+      <span class="left-buttons">
+        <button ng-hide="!agenda.id" class="button button-icon button-clear ion-ios-trash-outline" id="menu-popover" ng-click="deletar(agenda.id)">
+        </button>
+      </span>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="card list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Nome da Agenda:</span>
+        <input ng-model="agenda.nome" type="text" placeholder="Nome da agenda">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Cor da Agenda</span>
+        <input ng-model="agenda.cor" type="color" placeholder="">
+      </label>
+    </div>
+    <div class="padding">
+      <button  ng-click="cadastrar(agenda)" class="button button-block button-balanced">
+        Confirmar
+        <i class="icon ion-checkmark"></i>
+      </button>
+    </div>
+    <h2>Preview:</h2>
+    <div class="card list" style="background-color:{{agenda.cor}};" >
+     <div class="item item-divider">
+       {{agenda.nome}}
+     </div>
+
+     <div class="item item-text-wrap">
+      Seu conteúdo aqui
+     </div>
+
+    <!-- <div class="item item-divider">
+      Card Footer
+    </div> -->
+  </div>
+</ion-content>
+</ion-modal-view>

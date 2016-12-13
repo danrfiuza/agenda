@@ -1,0 +1,17 @@
+<ion-view view-title="{{titulo}}">
+	<!-- <ion-nav-buttons side="right">
+		<button class="button button-icon ion-compose" ng-click="openModal()">
+		</button>
+	</ion-nav-buttons> -->
+	<button id="fab" class="button button-positive button-fab button-fab-bottom-right icon ion-android-add waves-effect waves-button waves-light" ng-click="openModal()">
+	</button>
+	<ion-content>
+		<a class="card" ng-repeat="usuario in usuarios track by $index" href="#/app/agenda/{{usuario.id}}">
+			<div class="item item-text-wrap">
+				<h2>{{usuario.nome}}</h2>
+				<p>{{usuario.email}}</p>
+			</div>
+		</a>
+	</ion-content>
+</ion-view>
+<!--  href="#/app/playlists/{{playlist.id}}" -->

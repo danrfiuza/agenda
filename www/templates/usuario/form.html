@@ -1,0 +1,65 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-calm bar bar-header disable-user-behavior">
+		<div class="buttons buttons-left header-item">
+
+			<span class="right-buttons">
+				<button class="button button-icon button-clear ion-android-arrow-back" id="menu-popover" ng-click="closeModal()">
+				</button>
+			</span>
+		</div>
+	</span></div><div class="title title-center header-item">{{titulo}}</div>
+	<div class="buttons buttons-right header-item">
+		<span class="left-buttons">
+			<button ng-hide="!usuario.id" class="button button-icon button-clear ion-ios-trash-outline" id="menu-popover" ng-click="deletar(usuario.id)">
+			</button>
+		</span>
+	</div>
+</ion-header-bar>
+<ion-content>
+	<div class="list">
+		<div class="list card">
+			<div class="item item-image">
+				<div ng-if="usuario.foto">
+					<img ng-bind="expression" src="{{srcImage}}" id="srcImage" />
+				</div>
+				<div ng-if="!usuario.foto">
+					<img src="img/no-photo.png">
+				</div>
+			</div>
+			<button ng-click="fazOUrro()" class="button button-block button-positive">
+				trocar Imagem
+			</button>
+		</div>
+		<div class="padding">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Data de Nascimento</span>
+				<input ng-bind="nascimento" type="date" ng-model="usuario.nascimento" placeholder="">
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Nome do Usuário:</span>
+				<input ng-bind="nome" type="text" ng-model="usuario.nome" placeholder="Nome do Usuário">
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">E-mail:</span>
+				<input ng-bind="email" type="text" ng-model="usuario.email" placeholder="E-mail">
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Senha:</span>
+				<input  type="password" ng-model="usuario.senha" placeholder="Senha">
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Confirme sua Senha:</span>
+				<input ng-model="usuario.confirmaSenha" type="password" placeholder="Confirme senha"/>
+			</label>
+			<p ng-if="usuario.senha != usuario.confirmaSenha">Senha errada</p>
+		</div>
+	</div>
+	<div class="padding">
+		<button 
+		ng-click="cadastrar(usuario)" class="button button-block button-balanced">
+			Confirmar
+			<i class="icon ion-checkmark"></i>
+		</button>
+	</div>
+</ion-content>
+</ion-modal-view>

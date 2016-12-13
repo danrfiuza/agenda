@@ -1,0 +1,18 @@
+<ion-view view-title="{{titulo}}">
+	<!-- <ion-nav-buttons side="right">
+		<button class="button button-icon ion-compose" ng-click="openModal()">
+		</button>
+	</ion-nav-buttons> -->
+	<button id="fab" class="button button-positive button-fab button-fab-bottom-right icon ion-android-add waves-effect waves-button waves-light" ng-click="openModal()">
+	</button>
+	<ion-content>
+		<a class="card" ng-repeat="tarefa in tarefas track by $index" ng-click="alterar(tarefa)"/>
+			<div class="item item-text-wrap">
+				<h2>{{tarefa.nome}}</h2>
+				<p>{{tarefa.descricao}}</p>
+				<p ng-if="!tarefa.concluido">Não Concluído</p>
+				<p ng-if="tarefa.concluido">Concluído <i class="icon ion-checkmark"></i></p>
+			</div>
+		</a>
+	</ion-content>
+</ion-view>
